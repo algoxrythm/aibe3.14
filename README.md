@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ~ AI-Powered Business Intelligence Engine (AIBE)
 
 This project builds a full-stack AI system that transforms raw business data into actionable insights using predictive modeling, NLP, and time series forecasting. It includes an interactive dashboard and deployed API for real-time predictions.
@@ -38,4 +37,3 @@ pip install -r requirements.txt
 =======
 # aibe
 aibe as in "I-Bay"
->>>>>>> 2302d566632d497989399410412eef67a0f51b48
