@@ -1,0 +1,11 @@
+#For Generating One Report -
+#Activate aibe-env 
+#In directory /aibe run This -
+#python src/eda/generate_eda_report.py --input data/raw/marketing_campaign.csv
+
+
+#For All ds Reports At Once -
+#Activate aibe-env           
+#In directory /aibe run This -
+#python src/eda/generate_eda_report.py --all
+

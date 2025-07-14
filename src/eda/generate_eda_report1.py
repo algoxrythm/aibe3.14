@@ -121,23 +121,13 @@ def generate_correlation_heatmap(df, output_path, dataset_name):
 def plot_categorical_distributions(df, cat_cols, output_path, dataset_name):
     for col in cat_cols:
         if df[col].nunique() <= 20:
-            try:
-                cat_df = df[col].value_counts().reset_index()
-                cat_df.columns = [col, 'count']
-
-                fig = px.bar(cat_df,
-                             x=col, y='count',
-                             title=f"Distribution of {col}",
-                             color=col,
-                             color_discrete_sequence=px.colors.qualitative.Set2)
-
-                fig.update_traces(textposition='outside')
-                fig.update_layout(xaxis_title=col, yaxis_title='Count', showlegend=False)
-                fig.write_html(f"{output_path}/viz/{dataset_name}_{col}_bar.html")
-            except Exception as e:
-                console.print(f"[red]❌ Failed to plot {col}[/] — {e}")
+            fig = px.bar(df[col].value_counts().reset_index(),
+                         x='index', y=col,
+                         labels={'index': col, col: "Count"},
+                         title=f"Distribution of {col}")
+            fig.update_traces(textposition='outside')
+            fig.write_html(f"{output_path}/viz/{dataset_name}_{col}_bar.html")
     console.log(f"📊 Categorical bar charts saved")
-
 
 # -------------------- Run EDA --------------------
 def run_eda(file_path, args):
